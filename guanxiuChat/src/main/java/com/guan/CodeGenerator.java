@@ -40,8 +40,8 @@ public class CodeGenerator {
 //        pc.setModuleName("mapper");
         pc.setParent("com.guan");
         pc.setEntity("domain");
-        pc.setService("service");
-        pc.setController("controller");
+//        pc.setService("service");
+//        pc.setController("controller");
         generator.setPackageInfo(pc);
 
         // 策略配置
@@ -52,7 +52,7 @@ public class CodeGenerator {
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
         //映射的表名
-        strategy.setInclude("guan_chat");
+        strategy.setInclude("sys_user","sys_role");
         generator.setStrategy(strategy);
 
         // 执行
