@@ -26,6 +26,11 @@ public class LoginController {
         return "login.html";
     }
 
+    @RequestMapping("/guan_error")
+    public String showError() {
+        return "guan_error.html";
+    }
+
     @RequestMapping("/admin")
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_ADMIN')")

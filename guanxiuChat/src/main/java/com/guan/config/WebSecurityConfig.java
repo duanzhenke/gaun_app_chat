@@ -1,7 +1,9 @@
 package com.guan.config;
 
+import com.guan.filter.VerifyFilter;
 import com.guan.mapper.GuanChatMapper;
 import com.guan.service.IGuanChatService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.annotation.Resource;
@@ -23,6 +26,7 @@ import javax.annotation.Resource;
  * @Date: 2019/1/29 13:45
  * @Description:
  */
+@Slf4j
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -37,34 +41,37 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-   /* @Override
+    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new PasswordEncoder() {
-            @Override
-            public String encode(CharSequence charSequence) {
-                return charSequence.toString();
-            }
-
-            @Override
-            public boolean matches(CharSequence charSequence, String s) {
-                return s.equals(charSequence.toString());
-            }
-        });
-    }*/
+        // 在这里将 UserDetailsSercie 实例注入
+        try {
+            auth.userDetailsService(userDetailsService);
+        } catch (Exception e) {
+            log.error("Set userDetailService failed, {}", e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // 如果有允许匿名的url，填在下面
+                .antMatchers("/getVerifyCode").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 // 设置登陆页
                 .formLogin().loginPage("/login")
                 // 设置登陆成功页
                 .defaultSuccessUrl("/").permitAll()
+                // 登录失败Url
+                .failureUrl("/guan_error")
                 .and()
-                .logout().permitAll();
+                // 在用户名和密码之前 设置过滤器
+                .addFilterBefore(new VerifyFilter(), UsernamePasswordAuthenticationFilter.class)
+                .logout().permitAll()
+                .and().rememberMe()
+        ;
         // 关闭CSRF跨域
         http.csrf().disable();
     }
