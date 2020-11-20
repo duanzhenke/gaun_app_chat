@@ -2,9 +2,15 @@ package com.guan.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
+import java.beans.Transient;
 import java.time.LocalDateTime;
+
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -22,12 +28,12 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 public class BsProvince implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 自增列
      */
-      @TableId(value = "PROVINCE_ID", type = IdType.AUTO)
+    @TableId(value = "PROVINCE_ID", type = IdType.AUTO)
     private Integer provinceId;
 
     /**
@@ -95,5 +101,9 @@ public class BsProvince implements Serializable {
      */
     @TableField("TENANT_CODE")
     private String tenantCode;
+
+    @TableField(exist = false)
+    private List<BsCity> cities;
+
 
 }

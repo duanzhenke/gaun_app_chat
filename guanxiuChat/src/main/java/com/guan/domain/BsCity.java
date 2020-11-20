@@ -2,11 +2,17 @@ package com.guan.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.time.LocalDateTime;
+
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -17,15 +23,16 @@ import lombok.EqualsAndHashCode;
  * @since 2020-11-10
  */
 @Data
+@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
 public class BsCity implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 自增列
      */
-      @TableId(value = "CITY_ID", type = IdType.AUTO)
+    @TableId(value = "CITY_ID", type = IdType.AUTO)
     private Integer cityId;
 
     /**
@@ -99,6 +106,9 @@ public class BsCity implements Serializable {
      */
     @TableField("TENANT_CODE")
     private String tenantCode;
+
+    @TableField(exist = false)
+    private List<BsArea> areaList;
 
 
 }
