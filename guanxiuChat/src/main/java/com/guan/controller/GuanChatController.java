@@ -7,11 +7,7 @@ import com.guan.domain.dto.APIResponse;
 import com.guan.service.IGuanChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -42,7 +38,7 @@ public class GuanChatController {
      * @return
      */
     @PostMapping("saveOne")
-    public APIResponse<Integer> saveOne(GuanChat guanChat) {
+    public APIResponse<Integer> saveOne(@RequestBody GuanChat guanChat) {
         return APIResponse.success(iGuanChatService.saveOne(guanChat));
     }
 
@@ -59,5 +55,16 @@ public class GuanChatController {
         Page<GuanChat> guanChatPage = iGuanChatService.selectPageVo(current, size);
         return APIResponse.success(guanChatPage);
     }
+
+    /**
+     * 删除一个用户 TODO 应该
+     * @param userId
+     * @return
+     */
+    @DeleteMapping
+    public APIResponse<Boolean> delOne(Float userId) {
+        return APIResponse.success(iGuanChatService.removeById(userId));
+    }
+
 }
 
