@@ -1,5 +1,6 @@
 package com.guan.filter;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@Slf4j
 public class VerifyFilter extends OncePerRequestFilter {
     private static final PathMatcher pathMatcher = new AntPathMatcher();
 
@@ -42,7 +44,7 @@ public class VerifyFilter extends OncePerRequestFilter {
         String validateCode = ((String) request.getSession().getAttribute("validateCode")).toLowerCase();
         inputVerify = inputVerify.toLowerCase();
 
-        System.out.println("验证码：" + validateCode + "用户输入：" + inputVerify);
+        log.info("验证码：" + validateCode + "用户输入：" + inputVerify);
         return validateCode.equals(inputVerify);
     }
 
