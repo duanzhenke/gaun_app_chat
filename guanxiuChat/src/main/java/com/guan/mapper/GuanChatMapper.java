@@ -1,5 +1,6 @@
 package com.guan.mapper;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.guan.domain.GuanChat;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;

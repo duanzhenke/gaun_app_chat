@@ -1,9 +1,13 @@
 package com.guan.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.guan.controller.BsCityController;
 import com.guan.controller.BsProvinceController;
+import com.guan.controller.GuanChatController;
 import com.guan.domain.BsCity;
 import com.guan.domain.BsProvince;
+import com.guan.domain.GuanChat;
+import com.guan.domain.dto.APIResponse;
 import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -30,6 +34,8 @@ public class GuanChatServiceImplTest extends TestCase {
     private BsProvinceController bsProvinceController;
     @Autowired
     private BsCityController cityController;
+    @Autowired
+    private GuanChatController guanChatController;
 
     @Test
     public void test01() {
@@ -41,6 +47,12 @@ public class GuanChatServiceImplTest extends TestCase {
     public void test02() {
         BsCity bsCity = cityController.cityTree(309);
         log.info(bsCity.toString());
+    }
+
+    @Test
+    public void test03() {
+        APIResponse<Page<GuanChat>> pageAPIResponse = guanChatController.listPage(1, 10);
+        log.info(pageAPIResponse.getData().toString());
     }
 
 }
