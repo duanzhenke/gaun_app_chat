@@ -28,10 +28,10 @@ public class CodeGenerator {
 
         //2.0 数据源的配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
-        dataSourceConfig.setUrl("jdbc:mysql://192.168.0.117:23306/potato_gbf?useUnicode=true&characterEncoding=utf-8&useSSL=false");
+        dataSourceConfig.setUrl("jdbc:mysql://localhost:3306/gaunapp?useUnicode=true&characterEncoding=utf-8&useSSL=false");
         dataSourceConfig.setDriverName("com.mysql.jdbc.Driver");
-        dataSourceConfig.setUsername("potatogbf");
-        dataSourceConfig.setPassword("sak1Okb6PJkjw");
+        dataSourceConfig.setUsername("root");
+        dataSourceConfig.setPassword("root");
         dataSourceConfig.setDbType(DbType.MYSQL);
         generator.setDataSource(dataSourceConfig);
 
@@ -40,8 +40,8 @@ public class CodeGenerator {
 //        pc.setModuleName("mapper");
         pc.setParent("com.guan");
         pc.setEntity("domain");
-        pc.setService("service");
-        pc.setController("controller");
+//        pc.setService("service");
+//        pc.setController("controller");
         generator.setPackageInfo(pc);
 
         // 策略配置
@@ -52,7 +52,7 @@ public class CodeGenerator {
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
         //映射的表名
-        strategy.setInclude("bs_province","bs_city");
+        strategy.setInclude("sys_user","sys_role");
         generator.setStrategy(strategy);
 
         // 执行

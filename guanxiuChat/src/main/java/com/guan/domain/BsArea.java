@@ -9,9 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * <p>
  * 地区设置
- * </p>
  *
  * @author dzk
  * @since 2020-11-10

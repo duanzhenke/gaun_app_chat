@@ -31,5 +31,10 @@ public class BsProvinceController {
     public BsProvince getById(@PathVariable(value = "provinceId") Integer provinceId) {
         return iBsProvinceService.getById(provinceId);
     }
+
+    @GetMapping("getProvinceTree/{provinceId}")
+    public BsProvince getProvinceTree(@PathVariable(value = "provinceId") Integer provinceId) {
+        return iBsProvinceService.getProvinceTree(provinceId);
+    }
 }
 

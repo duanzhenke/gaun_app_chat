@@ -3,6 +3,7 @@ package com.guan.controller;
 
 import com.guan.domain.BsArea;
 import com.guan.domain.BsCity;
+import com.guan.domain.BsProvince;
 import com.guan.service.IBsCityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,11 @@ public class BsCityController {
     @GetMapping("getById/{cityId}")
     public BsCity getById(@PathVariable(value = "cityId") Integer cityId) {
         return iBsCityService.getById(cityId);
+    }
+
+    @GetMapping("cityTree/{cityId}")
+    public BsCity cityTree(@PathVariable(value = "cityId") Integer cityId) {
+        return iBsCityService.getCityTree(cityId);
     }
 }
 

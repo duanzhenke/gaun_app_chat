@@ -13,4 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBsProvinceService extends IService<BsProvince> {
 
+    // 根据省id  获取城市树
+    BsProvince getProvinceTree(Integer provinceId);
+
 }

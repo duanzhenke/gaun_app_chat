@@ -29,5 +29,6 @@ public class BsAreaController {
     public BsArea getById(@PathVariable(value = "areaId") Integer areaId) {
         return iBsAreaService.getById(areaId);
     }
+
 }
 
