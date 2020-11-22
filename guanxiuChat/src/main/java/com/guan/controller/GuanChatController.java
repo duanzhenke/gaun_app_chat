@@ -20,6 +20,7 @@ import javax.annotation.Resource;
  * @since 2020-11-18
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/guanChat")
 public class GuanChatController {
 
@@ -28,7 +29,7 @@ public class GuanChatController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "hello";
+        return "hello 管秀荣";
     }
 
     /**
@@ -58,6 +59,7 @@ public class GuanChatController {
 
     /**
      * 删除一个用户 TODO 应该
+     *
      * @param userId
      * @return
      */

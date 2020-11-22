@@ -29,7 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.apply(smsCodeAuthenticationSecurityConfig).and().authorizeRequests()
                 // 如果有允许匿名的url，填在下面
-                .antMatchers("/sms/**").permitAll()
+//                .antMatchers("/sms/**").permitAll()
+                .antMatchers("/guanChat/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 // 设置登陆页

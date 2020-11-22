@@ -17,6 +17,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Slf4j
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -53,6 +56,20 @@ public class GuanChatServiceImplTest extends TestCase {
     public void test03() {
         APIResponse<Page<GuanChat>> pageAPIResponse = guanChatController.listPage(1, 10);
         log.info(pageAPIResponse.getData().toString());
+    }
+
+    @Test
+    public void test04() {
+        GuanChat guanChat = new GuanChat()
+                .setUserName("管秀荣")
+                .setPhoneNumber("17788555555")
+                .setPassWord("123")
+                .setGender(0)
+                .setMaritalStatus(0)
+                .setEducation("本科")
+                .setBirthday(LocalDateTime.now());
+        APIResponse<Integer> one = guanChatController.saveOne(guanChat);
+        log.info(one.getData().toString());
     }
 
 }

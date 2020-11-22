@@ -31,7 +31,7 @@ public class GuanChat implements Serializable {
      * 主键
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Float id;
+    private float id;
 
     /**
      * 用户名字

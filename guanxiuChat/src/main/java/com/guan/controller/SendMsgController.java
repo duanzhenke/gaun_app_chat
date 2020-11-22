@@ -23,6 +23,11 @@ public class SendMsgController {
     @Resource
     private RedisTemplate<String, String> redisTemplate;
 
+    /**
+     *
+     * @param phoneNum
+     * @return
+     */
     @GetMapping("sendMsg")
     public String sendMsg(String phoneNum) {
         String code = redisTemplate.opsForValue().get(phoneNum);
