@@ -19,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,12 +42,16 @@ public class GuanChatServiceImpl extends ServiceImpl<GuanChatMapper, GuanChat> i
 
     @Override
     public int saveOne(GuanChat guanChat) {
-        guanChat.setPassWord(passwordEncoder.encode(guanChat.getPassWord()));
+        guanChat.setPassWord(passwordEncoder
+                .encode(guanChat.getPassWord()))  //密码加密
+                .setGmtCreate(LocalDateTime.now()); //创建时间
+
         return guanChatMapper.insert(guanChat);
     }
 
     /**
      * 通过用户名查找用户信息
+     *
      * @param username 用户的姓名
      * @return GuanChat
      */
@@ -59,6 +64,6 @@ public class GuanChatServiceImpl extends ServiceImpl<GuanChatMapper, GuanChat> i
     public Page<GuanChat> selectPageVo(Integer current, Integer size) {
         QueryWrapper<GuanChat> wrapper = new QueryWrapper<>();
         Page<GuanChat> page = new Page<>(current, size);
-        return  guanChatMapper.selectPage(page, wrapper);
+        return guanChatMapper.selectPage(page, wrapper);
     }
 }

@@ -3,6 +3,7 @@ package com.guan.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -47,7 +48,7 @@ public class GuanChat implements Serializable {
      * 出生年月日
      */
     @NotNull
-    private LocalDateTime birthday;
+    private LocalDate birthday;
 
     /**
      * 身高

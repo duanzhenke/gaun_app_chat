@@ -25,24 +25,24 @@ public class SendMsgController {
 
     /**
      *
-     * @param phoneNum
+     * @param phoneNumber
      * @return
      */
     @GetMapping("sendMsg")
-    public String sendMsg(String phoneNum) {
-        String code = redisTemplate.opsForValue().get(phoneNum);
+    public String sendMsg(String phoneNumber) {
+        String code = redisTemplate.opsForValue().get(phoneNumber);
         //调用发送方法
         if (!StringUtils.isEmpty(code)) {
-            return phoneNum + ":" + code + "已存在，没过期";
+            return phoneNumber + ":" + code + "已存在，没过期";
         }
         //生成验证码，并存储到redis中
         code = UUID.randomUUID().toString().substring(0, 4);
         HashMap<String, Object> map = new HashMap<>();
         map.put("code", code);
-        boolean isSend = sendMsgService.sendMsg(phoneNum, map);
+        boolean isSend = sendMsgService.sendMsg(phoneNumber, map);
         if (isSend) {
-            redisTemplate.opsForValue().set(phoneNum, code, 5, TimeUnit.MINUTES);
-            return phoneNum + ":" + code + "发送成功";
+            redisTemplate.opsForValue().set(phoneNumber, code, 5, TimeUnit.MINUTES);
+            return phoneNumber + ":" + code + "发送成功";
         }
         return "短信验证码，发送失败：";
     }

@@ -67,7 +67,7 @@ public class GuanChatServiceImplTest extends TestCase {
                 .setGender(0)
                 .setMaritalStatus(0)
                 .setEducation("本科")
-                .setBirthday(LocalDateTime.now());
+                .setBirthday(LocalDate.now());
         APIResponse<Integer> one = guanChatController.saveOne(guanChat);
         log.info(one.getData().toString());
     }

@@ -58,7 +58,7 @@ public class GuanChatController {
     }
 
     /**
-     * 删除一个用户 TODO 应该
+     * 删除一个用户 TODO 应该逻辑删除
      *
      * @param userId
      * @return
@@ -66,6 +66,29 @@ public class GuanChatController {
     @DeleteMapping
     public APIResponse<Boolean> delOne(Float userId) {
         return APIResponse.success(iGuanChatService.removeById(userId));
+    }
+
+    /**
+     * 修改一个用户
+     *
+     * @param guanChat 修改的实体用户
+     * @return APIResponse 布尔类型
+     */
+    @PostMapping("updateOne")
+    public APIResponse<Boolean> updateOne(@RequestBody GuanChat guanChat) {
+        return APIResponse.success(iGuanChatService.updateById(guanChat));
+    }
+
+
+    /**
+     * 查找一个用户
+     *
+     * @param userId 根据用户id ,获取用户的详细信息
+     * @return APIResponse 布尔类型
+     */
+    @GetMapping("detailUser")
+    public APIResponse<GuanChat> detailUser(Float userId) {
+        return APIResponse.success(iGuanChatService.getById(userId));
     }
 
 }
