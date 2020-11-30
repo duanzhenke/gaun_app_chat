@@ -10,7 +10,17 @@
     <link rel="stylesheet" type="text/css" href="css/webbase.css"/>
     <link rel="stylesheet" type="text/css" href="css/pages-register.css"/>
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+    <style>
+        .disabledDzk {
+            pointer-events: none;
+            filter: alpha(opacity=50);
+            -moz-opacity: 0.5;
+            opacity: 0.5;
+        }
+    </style>
 </head>
+
 
 <body>
 <div id="app" class="register py-container ">
@@ -53,7 +63,7 @@
 
                 <div class="control-group">
                     <label class="control-label">时间：</label>
-                    <div class="controls">
+                    <div class="block">
                         <el-date-picker v-model="selectDay" type="date" placeholder="选择日" @change="dataSearch"
                                         value-format="yyyy-MM-dd"></el-date-picker>
                     </div>
@@ -69,22 +79,25 @@
                 <div class="control-group">
                     <label class="control-label">确认密码：</label>
                     <div class="controls">
-                        <input type="password" placeholder="再次确认密码" class="input-xfat input-xlarge">
+                        <input @blur="checkPass_wd" v-model="confirm_passwd" type="password" placeholder="再次确认密码"
+                               class="input-xfat input-xlarge">
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label">手机号：</label>
                     <div class="controls">
-                        <input v-model="guanChat.phoneNumber" type="text" placeholder="请输入你的手机号"
+                        <input @blur="check_req" v-model="guanChat.phoneNumber" type="text" placeholder="请输入你的手机号"
                                class="input-xfat input-xlarge">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label">短信验证码：</label>
                     <div class="controls">
-                        <input type="text" placeholder="短信验证码" class="input-xfat input-xlarge"> <a @click="sendMsg"
-                                                                                                   href="#">获取短信验证码</a>
+                        <input type="text" @blur="check_code" v-model="page_code" placeholder="短信验证码"
+                               class="input-xfat input-xlarge">
+                        <a :class="{disabledDzk: flag}" @click="sendMsg">获取短信验证码</a>
+                        <!--                        <button :disabled="flag" @click.stop="sendMsg"  >获取短信验证码</button>-->
                     </div>
                 </div>
 
@@ -97,8 +110,8 @@
                 <div class="control-group">
                     <label class="control-label"></label>
                     <div class="controls btn-reg">
-                        <a class="sui-btn btn-block btn-xlarge btn-danger" @click="saveOne" href="login_guan.html"
-                           target="_blank">完成注册</a>
+                        <a class="sui-btn btn-block btn-xlarge btn-danger" :class="{disabledDzk: !this.registe_status}"
+                           @click="saveOne" href="login.html">完成注册</a>
                     </div>
                 </div>
             </form>
@@ -127,44 +140,7 @@
 <script src="../static/js/axios-0.18.0.js"></script>
 <!-- 引入组件库 -->
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-
-<script>
-    const vm = new Vue({
-        el: '#app',
-        data: {
-            baseUrl: "http://localhost:9097/",
-            msg: "dzk绑定成功",
-            guanChat: {"birthday": this.selectDay},
-            selectDay: ""
-        },
-        methods: {
-            dataSearch(e) {
-                this.guanChat.birthday = e;
-            },
-            // 保存注册用户的信息
-            saveOne() {
-                axios.post(this.baseUrl + "guanChat/saveOne", this.guanChat).then(function (response) {
-                    alert("注册成功了")
-                    console.log(response.data);
-                }).catch(function (error) {
-                    console.log(error);
-                });
-            },
-            sendMsg() {
-                //1.get通过直接发字符串拼接 测试是否拼接成功
-                axios.get(this.baseUrl + "sendMsg?phoneNumber="+this.guanChat.phoneNumber)
-                    .then(function (response) {
-                        console.log(response.data);
-                    }).catch(function (error) {
-                    console.log(error);
-                });
-
-            }
-        }
-
-    })
-</script>
-
+<script src="js/dzk_register.js"></script>
 </body>
 
 </html>
