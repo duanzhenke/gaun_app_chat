@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.css">
+    <script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js"></script>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery-weui.js"></script>
+    <style>
+        html, body{
+            height: 100%;
+            background-color: #f8f8f8;
+        }
+        body{
+            font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+            background-color: #f3f5f7;
+        }
+        .body-top{
+            position: relative;
+            height: 20%;
+            width: 100%;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 7rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("img/theme.jpeg");
+        }
+        .page-head {
+            height: 7%;
+            width: 100%;
+            color: #FFFFFF;
+            line-height: 2.3rem;
+            background-color: #7a55d3;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+        .body-box {
+            margin: 0.1rem 1rem;
+            height: 68%;
+            background-color: #FFFFFF;
+        }
+        .box-part {
+            display: flex;
+            justify-content: center;
+        }
+        img {
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        .weui-picker-modal {
+            background-color: #FFFFFF;
+        }
+        .weui-picker-modal .picker-item{
+            height: 50px;
+            line-height: 50px;
+        }
+        .weui-picker-modal .picker-center-highlight{
+            height: 50px;
+            margin-top: -25px;
+        }
+        .weui-picker-modal .picker-center-highlight:before{
+            background-color: #7a55d3;
+        }
+        .weui-picker-modal .picker-center-highlight:after{
+            background-color: #7a55d3;
+        }
+        .body-box .weui-btn.main_btn{
+            margin-top: 15px;
+            color: white;
+            background-color: #a26def;
+        }
+        .weui-picker-modal.picker-modal-inline {
+            height: 12.8rem;
+        }
+        .weui-picker-modal .picker-modal-inner{
+            height: 12.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-head">完善资料</div>
+    <div class="body-top">你的工作地区在哪里</div>
+    <div class="body-box">
+        <div class="box-part">
+            <input class="weui-input" id="end" type="hidden" value="">
+        </div>
+        <div id="picker-container"></div>
+        <a href="javascript:void(0);" class="weui-btn weui-btn_default main_btn">下一步</a>
+    </div>
+</body>
+<script src="./js/city-picker.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    $("#end").cityPicker({
+        container: '#picker-container',
+        onChange: function(p, v, dv) {
+            console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+            console.log("close");
+        }
+    });
+    $('.main_btn').click(function(){
+        location.href = "4.html"
+    })
+</script>
+</html>

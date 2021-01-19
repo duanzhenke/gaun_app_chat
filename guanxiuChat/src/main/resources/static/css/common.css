@@ -1,0 +1,16 @@
+
+.body-box .weui-btn.main_btn{
+    margin-top: 20px;
+    color: white;
+    width: 98%;
+    background-color: #a26def;
+}
+
+.selected {
+    background-color: #a26def;
+    color: #FFFFFF;
+}
+
+.selected .weui-grid__label{
+    color: #FFFFFF;
+}

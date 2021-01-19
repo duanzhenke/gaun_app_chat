@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.0.1/weui.min.css">
+    <script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/jquery-weui.js"></script>
+    <style>
+        html, body{
+            height: 100%;
+            background-color: #f8f8f8;
+        }
+        body{
+            font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+            background-color: #f3f5f7;
+        }
+        .body-top{
+            position: relative;
+            height: 20%;
+            width: 100%;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 7rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("img/theme.jpeg");
+        }
+        .page-head {
+            height: 7%;
+            width: 100%;
+            color: #FFFFFF;
+            line-height: 3rem;
+            background-color: #7a55d3;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+        .body-box {
+            margin: 0.1rem 1rem;
+            padding: 10px 0;
+            height: auto;
+            background-color: #FFFFFF;
+        }
+        .body-item {
+            display: flex;
+            /*height: 20%;*/
+            height: 10rem;
+            width: 100%;
+            border-top:1px solid #ececec;
+        }
+        .body-label {
+            position: relative;
+            flex: 1;
+        }
+        .num {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #7a55d3;
+        }
+        .cm {
+            text-align: center;
+            font-size: 1rem;
+            color: #7a55d3;
+        }
+        .line {
+            height: 5rem;
+            width: 1px;
+            background-color: #9c3ac1;
+            margin-left: 50%;
+        }
+        .body-selection {
+            flex: 4;
+        }
+        .weui-grid {
+            position: relative;
+            float: left;
+            padding: 16px 10px;
+            width: 25%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-head">完善资料</div>
+    <div class="body-top">你的身高</div>
+    <div class="body-box">
+        <div class="body-item">
+            <div class="body-label">
+                <div class="num">150</div>
+                <div class="cm">cm</div>
+                <div class="line"></div>
+            </div>
+            <div class="body-selection weui-grids">
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">150</p>
+                    </a>
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">151</p>
+                    </a>
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">152</p>
+                    </a>
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">153</p>
+                    </a>
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">154</p>
+                    </a>
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">155</p>
+                    </a>
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">156</p>
+                    </a>
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">157</p>
+                    </a>
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">158</p>
+                    </a>
+                    <a href="javascript:" class="weui-grid">
+                        <p class="weui-grid__label">159</p>
+                    </a>
+            </div>
+        </div>
+        <div class="body-item">
+            <div class="body-label">
+                <div class="num">160</div>
+                <div class="cm">cm</div>
+                <div class="line"></div>
+            </div>
+            <div class="body-selection weui-grids">
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">160</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">161</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">162</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">163</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">164</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">165</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">166</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">167</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">168</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">169</p>
+                </a>
+            </div>
+        </div>
+        <div class="body-item">
+            <div class="body-label">
+                <div class="num">170</div>
+                <div class="cm">cm</div>
+                <div class="line"></div>
+            </div>
+            <div class="body-selection weui-grids">
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">170</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">171</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">172</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">173</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">174</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">175</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">176</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">177</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">178</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">179</p>
+                </a>
+            </div>
+        </div>
+        <div class="body-item">
+            <div class="body-label">
+                <div class="num">180</div>
+                <div class="cm">cm</div>
+                <div class="line"></div>
+            </div>
+            <div class="body-selection weui-grids">
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">180</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">181</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">182</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">183</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">184</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">185</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">186</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">187</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">188</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">189</p>
+                </a>
+            </div>
+        </div>
+        <div class="body-item">
+            <div class="body-label">
+                <div class="num">190</div>
+                <div class="cm">cm</div>
+                <div class="line"></div>
+            </div>
+            <div class="body-selection weui-grids">
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">190</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">191</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">192</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">193</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">194</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">195</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">196</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">197</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">198</p>
+                </a>
+                <a href="javascript:" class="weui-grid">
+                    <p class="weui-grid__label">199</p>
+                </a>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="weui-btn weui-btn_default main_btn">下一步</a>
+    </div>
+</body>
+<script>
+    $(function () {
+        $('.weui-grid').click(function (){
+            $('.weui-grid').removeClass("selected")
+            $(this).addClass("selected")
+        })
+        $('.main_btn').click(function(){
+            if($('.weui-grid').hasClass("selected")){
+                location.href = "3.html"
+            }else{
+                $.toast("请选择你的情况", "cancel");
+                //$.alert("请选择你的情况");
+            }
+        })
+    });
+</script>
+</html>

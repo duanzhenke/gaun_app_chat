@@ -29,14 +29,14 @@ public class GuanChatController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "hello 管秀荣";
+        return "hello 管秀荣7777777";
     }
 
     /**
      * 新增用户 其实就是 注册一个用户
      *
-     * @param guanChat
-     * @return
+     * @param guanChat 用户主体
+     * @return APIResponse<Integer>
      */
     @PostMapping("saveOne")
     public APIResponse<Integer> saveOne(@RequestBody GuanChat guanChat) {
