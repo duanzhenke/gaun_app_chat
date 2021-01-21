@@ -32,7 +32,7 @@ public class GuanChat implements Serializable {
      * 主键
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private float id;
+    private String id;
 
     /**
      * 用户名字
@@ -42,7 +42,7 @@ public class GuanChat implements Serializable {
     /**
      * 0 男 1 女
      */
-    private Integer gender;
+    private int gender;
 
     /**
      * 出生年月日
@@ -53,7 +53,7 @@ public class GuanChat implements Serializable {
     /**
      * 身高
      */
-    private Double userHigh;
+    private double userHigh;
 
     /**
      * 学历
@@ -63,7 +63,7 @@ public class GuanChat implements Serializable {
     /**
      * 婚姻状况 0未婚 1 已婚 2 离婚
      */
-    private Integer maritalStatus;
+    private int maritalStatus;
 
     /**
      * 月输入
@@ -74,7 +74,7 @@ public class GuanChat implements Serializable {
      * 电话号码
      */
     @NotNull
-    private String phoneNumber;
+    private int phoneNumber;
 
     /**
      * 密码
@@ -91,7 +91,7 @@ public class GuanChat implements Serializable {
     /**
      * 是否逻辑删除
      */
-    private Integer isDelete;
+    private int isDelete;
 
 
 }
