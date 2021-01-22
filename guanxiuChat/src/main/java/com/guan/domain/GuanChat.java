@@ -3,6 +3,7 @@ package com.guan.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.io.Serializable;
@@ -15,10 +16,7 @@ import lombok.experimental.Accessors;
 import javax.validation.constraints.NotNull;
 
 /**
- * <p>
- *
- * </p>
- *
+
  * @author dzk
  * @since 2020-11-18
  */
@@ -32,7 +30,7 @@ public class GuanChat implements Serializable {
     /**
      * 主键
      */
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id")
     private Long id;
 
     /**
@@ -49,6 +47,7 @@ public class GuanChat implements Serializable {
      * 出生年月日
      */
     @NotNull
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDate birthday;
 
     /**
@@ -74,13 +73,13 @@ public class GuanChat implements Serializable {
     /**
      * 电话号码
      */
-    @NotEmpty
+//    @NotEmpty
     private String phoneNumber;
 
     /**
      * 密码
      */
-    @NotNull
+//    @NotNull
     private String passWord;
 
     private LocalDateTime gmtCreate;
@@ -93,6 +92,11 @@ public class GuanChat implements Serializable {
      * 是否逻辑删除
      */
     private int isDelete;
+
+    /**
+     * 所属城市
+     */
+    private String city;
 
 
 }

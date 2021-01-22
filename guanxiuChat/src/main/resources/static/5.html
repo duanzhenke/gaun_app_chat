@@ -78,7 +78,10 @@
         })
         $('.main_btn').click(function(){
             if($('.body-item').hasClass("selected")){
-                location.href = "6.html"
+                var  education= $('.body-item.selected').text();
+                //获得了当前链接的中?号后的参数
+                var params = window.location.search.substring(1);
+                location.href = "6.html?"+"education="+encodeURI(education)+"&"+params;
             }else{
                 $.toast("请选择你的情况", "cancel");
                 //$.alert("请选择你的情况");

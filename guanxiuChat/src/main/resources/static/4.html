@@ -225,7 +225,10 @@
         })
         $('.main_btn').click(function(){
             if($('.weui-grid').hasClass("selected")){
-                location.href = "5.html"
+             var birthday= $('.weui-grid.selected').children().text()+"-01-02 09:51:52";
+                //获得了当前链接的中?号后的参数
+                var params = window.location.search.substring(1);
+                location.href = "5.html?"+"birthday="+encodeURI(birthday)+"&"+params;
             }else{
                 $.toast("请选择你的情况", "cancel");
                 //$.alert("请选择你的情况");

@@ -61,9 +61,9 @@
     <div class="page-head">完善资料</div>
     <div class="body-top">你的婚姻情况</div>
     <div class="body-box">
-        <div class="body-item">未婚</div>
-        <div class="body-item">离异</div>
-        <div class="body-item">丧偶</div>
+        <div value="0" class="body-item">未婚</div>
+        <div value="1" class="body-item">离异</div>
+        <div value="2" class="body-item">丧偶</div>
         <a href="javascript:void(0);" class="weui-btn weui-btn_default main_btn">下一步</a>
     </div>
 </body>
@@ -75,7 +75,10 @@
         })
         $('.main_btn').click(function(){
             if($('.body-item').hasClass("selected")){
-                location.href = "7.html"
+                var  maritalStatus= $('.body-item.selected').attr("value");
+                //获得了当前链接的中?号后的参数
+                var params = window.location.search.substring(1);
+                location.href = "7.html?"+"maritalStatus="+encodeURI(maritalStatus)+"&"+params;
             }else{
                 $.toast("请选择你的情况", "cancel");
                 //$.alert("请选择你的情况");

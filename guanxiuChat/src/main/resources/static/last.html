@@ -63,10 +63,14 @@
 </head>
 <body>
     <div class="body-top"></div>
-    <div class="body-box">
-        <a href="javascript:void(0);" class="weui-btn weui-btn_default main_btn">加好友申请进群</a>
+    <div id="app" class="body-box">
+        <a @click="saveOne" href="javascript:void(0);" class="weui-btn weui-btn_default main_btn">加好友申请进群</a>
         <p class="mark">加群主申请进群</p>
     </div>
+
+    <script src="../static/js/vue.js"></script>
+    <script src="../static/js/axios-0.18.0.js"></script>
+    <script src="./js/guanChat.js"></script>
 </body>
 <script>
     $(function () {

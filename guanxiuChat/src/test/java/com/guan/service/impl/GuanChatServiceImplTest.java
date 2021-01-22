@@ -1,6 +1,7 @@
 package com.guan.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.guan.config.SnowflakeConfig;
 import com.guan.controller.BsCityController;
 import com.guan.controller.BsProvinceController;
 import com.guan.controller.GuanChatController;
@@ -40,10 +41,14 @@ public class GuanChatServiceImplTest extends TestCase {
     @Autowired
     private GuanChatController guanChatController;
 
+    @Autowired
+    SnowflakeConfig snowflakeConfig;
+
     @Test
     public void test01() {
-        BsProvince provinceTree = bsProvinceController.getProvinceTree(27);
-        log.info(provinceTree.toString());
+        for (int i = 0; i < 10; i++) {
+            System.out.println(snowflakeConfig.snowflakeId());
+        }
     }
 
     @Test

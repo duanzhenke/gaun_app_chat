@@ -22,8 +22,8 @@ spring:
       shutdown-timeout: 0
 
 mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
       logic-delete-field: flag  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
@@ -33,5 +33,5 @@ mybatis-plus:
 
 sendMsg:
   templateCode: SMS_205606252
-  accessKeyId: LTAI4G8TJqCWHRZxUin7wJe5
+  accessKeyId: 加密
   secret: 自己的密码，不要暴露

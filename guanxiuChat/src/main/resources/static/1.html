@@ -87,11 +87,11 @@
         <div class="box-part">
             <div class="box-left item">
                 <img src="./img/icon_male.png">
-                <span class="text-name">男</span>
+                <span value="1" class="text-name">男</span>
             </div>
             <div class="box-right item">
                 <img src="img/icon_female.png">
-                <span class="text-name">女</span>
+                <span value="0" class="text-name" >女</span>
             </div>
         </div>
         <a href="javascript:void(0);" class="weui-btn weui-btn_default main_btn">下一步</a>
@@ -106,10 +106,10 @@
         })
         $('.main_btn').click(function(){
             if($('.item').hasClass("selected")){
-                    location.href = "2.html"
+              var gender=  $('.item.selected').children().eq(1).attr("value");
+                    location.href = "2.html?"+"gender="+encodeURI(gender);
                 }else{
                     $.toast("请选择你的情况", "cancel");
-                    //$.alert("请选择你的情况");
                 }
         })
     });
