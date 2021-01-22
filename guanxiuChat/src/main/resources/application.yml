@@ -5,13 +5,13 @@ spring:
     name: guanxiu_App
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/gaunapp?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: root
+    url: jdbc:mysql://192.168.0.117:23306/potato_engineoil?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: potatoengineoil
+    password: hFi7qVeMqS
   redis:
-    host: 127.0.0.1
-    port: 6379
-#    password: 123456
+    host: 192.168.0.117
+    port: 26379
+    password: tescomm
     jedis:
       pool:
         max-active: 8

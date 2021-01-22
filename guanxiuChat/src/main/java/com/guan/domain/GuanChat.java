@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -32,7 +33,7 @@ public class GuanChat implements Serializable {
      * 主键
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Long id;
 
     /**
      * 用户名字
@@ -73,8 +74,8 @@ public class GuanChat implements Serializable {
     /**
      * 电话号码
      */
-    @NotNull
-    private int phoneNumber;
+    @NotEmpty
+    private String phoneNumber;
 
     /**
      * 密码
