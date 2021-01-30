@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;">
+    <meta name="viewport"
+          content="width=device-width; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;">
     <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"/>
     <link rel="stylesheet" href="./css/jquery-weui.css">
     <link rel="stylesheet" href="./css/common.css">
@@ -12,15 +13,17 @@
     <script src="js/fastclick.js"></script>
     <script src="js/jquery-weui.js"></script>
     <style>
-        html, body{
+        html, body {
             height: 100%;
             background-color: #f8f8f8;
         }
-        body{
+
+        body {
             font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
             background-color: #f3f5f7;
         }
-        .body-top{
+
+        .body-top {
             position: relative;
             /*margin-top: 1%;*/
             height: 25%;
@@ -29,6 +32,7 @@
             background-repeat: no-repeat;
             background-image: url("img/bg_two.png");
         }
+
         .page-head {
             height: 7%;
             width: 100%;
@@ -40,39 +44,47 @@
             left: 0;
             text-align: center;
         }
+
         .body-box {
             margin: 0.1rem 1rem;
             height: 68%;
             background-color: #FFFFFF;
         }
+
         .box-title {
             height: 7rem;
             line-height: 7rem;
             text-align: center;
         }
+
         .box-part {
             display: flex;
             justify-content: center;
         }
+
         .box-left {
             flex: 1;
             text-align: center;
             box-sizing: border-box;
         }
-        .box-right{
+
+        .box-right {
             flex: 1;
             text-align: center;
             box-sizing: border-box;
         }
+
         img {
             width: 50%;
             display: block;
             margin: 0 auto;
         }
-        .text-name{
+
+        .text-name {
             display: inline-block;
             margin-top: 0.5rem;
         }
+
         .selected {
             border: 1px solid #a26def;
             border-radius: 4px;
@@ -80,37 +92,37 @@
     </style>
 </head>
 <body>
-    <div class="page-head">完善资料</div>
-    <div class="body-top"></div>
-    <div class="body-box">
-        <div class="box-title">请问你的性别是</div>
-        <div class="box-part">
-            <div class="box-left item">
-                <img src="./img/icon_male.png">
-                <span value="1" class="text-name">男</span>
-            </div>
-            <div class="box-right item">
-                <img src="img/icon_female.png">
-                <span value="0" class="text-name" >女</span>
-            </div>
+<div class="page-head">完善资料</div>
+<div class="body-top"></div>
+<div class="body-box">
+    <div class="box-title">请问你的性别是</div>
+    <div class="box-part">
+        <div class="box-left item">
+            <img src="./img/icon_male.png">
+            <span value="1" class="text-name">男</span>
         </div>
-        <a href="javascript:void(0);" class="weui-btn weui-btn_default main_btn">下一步</a>
+        <div class="box-right item">
+            <img src="img/icon_female.png">
+            <span value="0" class="text-name">女</span>
+        </div>
     </div>
+    <a href="javascript:void(0);" class="weui-btn weui-btn_default main_btn">下一步</a>
+</div>
 </body>
 <script>
     // 方式二
     $(function () {
-        $('.item').click(function (){
+        $('.item').click(function () {
             $('.item').removeClass("selected")
             $(this).addClass("selected")
         })
-        $('.main_btn').click(function(){
-            if($('.item').hasClass("selected")){
-              var gender=  $('.item.selected').children().eq(1).attr("value");
-                    location.href = "2.html?"+"gender="+encodeURI(gender);
-                }else{
-                    $.toast("请选择你的情况", "cancel");
-                }
+        $('.main_btn').click(function () {
+            if ($('.item').hasClass("selected")) {
+                var gender = $('.item.selected').children().eq(1).attr("value");
+                location.href = "2.html?" + "gender=" + encodeURI(gender);
+            } else {
+                $.toast("请选择你的情况", "cancel");
+            }
         })
     });
 </script>
