@@ -9,7 +9,7 @@ spring:
     username: *****
     password: ****
   redis:
-    host: 192.168.0.117
+    host: 192.168.0.***
     port: ***
     password: ***
     jedis:
@@ -32,6 +32,6 @@ mybatis-plus:
 
 
 sendMsg:
-  templateCode: SMS_205606252
+  templateCode: ****
   accessKeyId: 加密
   secret: 自己的密码，不要暴露
